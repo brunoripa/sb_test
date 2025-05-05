@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=localhost
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+  jaeger:
+    image: jaegertracing/opentelemetry-all-in-one:latest
+    ports:
+      - 16686:16686
+      - 55680:55680
+      - 55681:55681
+      - 4318:4318
+volumes:
+  postgres_data:
