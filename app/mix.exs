@@ -19,7 +19,7 @@ defmodule App.MixProject do
   def application do
     [
       mod: {App.Application, []},
-      extra_applications: [:logger, :runtime_tools, :opentelemetry]
+      extra_applications: [:logger, :runtime_tools, :opentelemetry_exporter]
     ]
   end
 
@@ -66,7 +66,9 @@ defmodule App.MixProject do
       {:bandit, "~> 1.5"},
       {:igniter, "0.5.50", runtime: false},
       {:opentelemetry_exporter, "~> 1.0"},
-      {:opentelemetry, "~> 1.0"}
+      {:opentelemetry, "~> 1.0"},
+      {:opentelemetry_telemetry, "~> 1.1.2"},
+      {:decorator, "~> 1.4.0"}
     ]
   end
 
